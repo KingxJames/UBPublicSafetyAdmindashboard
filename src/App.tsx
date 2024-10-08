@@ -7,6 +7,8 @@ import DefaultLayout from "./layout/DefaultLayout";
 import { Login } from "./pages/Login/Login";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { Settings } from "./pages/Settings/Settings";
+import { AnonymousTips } from "./pages/Messages/AnonymousTips/AnonymousTips";
+import { Emergencies } from "./pages/Messages/Emergencies/Emergencies";
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -35,6 +37,8 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/Settings" element={<Settings/>}/>
+              <Route path="/Messages/Anonymous-Tips" element={<AnonymousTips/>}/>
+              <Route path="/Messages/Emergencies" element={<Emergencies/>}/>
             </Routes>
           </DefaultLayout>
         }

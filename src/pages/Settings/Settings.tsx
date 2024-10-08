@@ -3,10 +3,12 @@ import userThree from "../../images/user/user-03.png";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import EmailIcon from "@mui/icons-material/Email";
 import CorporateFareIcon from "@mui/icons-material/CorporateFare";
+import UBBreadcrumb from "../../common/UBBreadcrumbs/UBBreadcrumbs";
 
 export const Settings: React.FC = () => {
   return (
     <>
+      <UBBreadcrumb pageName="Settings" />
       <div className="mx-auto max-w-270">
         <div className="grid grid-cols-5 gap-8">
           <div className="col-span-5 xl:col-span-3">
@@ -21,7 +23,7 @@ export const Settings: React.FC = () => {
                   <div className="mb-5.5 flex flex-col gap-5.5 sm:flex-row">
                     <div className="w-full sm:w-1/2">
                       <label
-                        className="mb-3 block text-sm font-medium text-black dark:text-white"
+                        className="mb-3 block text-sm font-medium text-black dark:text-white text-left"
                         htmlFor="fullName"
                       >
                         Full Name
@@ -43,7 +45,7 @@ export const Settings: React.FC = () => {
 
                     <div className="w-full sm:w-1/2">
                       <label
-                        className="mb-3 block text-sm font-medium text-black dark:text-white"
+                        className="mb-3 block text-sm font-medium text-black dark:text-white text-left"
                         htmlFor="phoneNumber"
                       >
                         Phone Number
@@ -61,7 +63,7 @@ export const Settings: React.FC = () => {
 
                   <div className="mb-5.5">
                     <label
-                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white text-left"
                       htmlFor="emailAddress"
                     >
                       Email Address
@@ -83,7 +85,7 @@ export const Settings: React.FC = () => {
 
                   <div className="mb-5.5">
                     <label
-                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white text-left"
                       htmlFor="workEmail"
                     >
                       Work Email
@@ -105,13 +107,13 @@ export const Settings: React.FC = () => {
 
                   <div className="mb-5.5">
                     <label
-                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white text-left"
                       htmlFor="organization"
                     >
                       Organization
                     </label>
                     <div className="relative">
-                      <span className="absolute left-4.5 top-3">
+                      <span className="absolute left-4.5 top-3 ">
                         <CorporateFareIcon />
                       </span>
                       <input
@@ -127,7 +129,7 @@ export const Settings: React.FC = () => {
 
                   <div className="mb-5.5">
                     <label
-                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white text-left"
                       htmlFor="Title"
                     >
                       Title
@@ -147,7 +149,7 @@ export const Settings: React.FC = () => {
 
                   <div className="mb-5.5">
                     <label
-                      className="mb-3 block text-sm font-medium text-black dark:text-white"
+                      className="mb-3 block text-sm font-medium text-black dark:text-white text-left"
                       htmlFor="Username"
                     >
                       Username
