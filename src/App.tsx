@@ -1,7 +1,7 @@
 // App.tsx
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { UBHeader } from "./components/UBHeader/UBHeader";
+// import { UBHeader } from "./components/UBHeader/UBHeader";
 import { Loader } from "./common/Loader/Loader";
 import DefaultLayout from "./layout/DefaultLayout";
 import { Login } from "./pages/Login/Login";
@@ -9,6 +9,7 @@ import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { Settings } from "./pages/Settings/Settings";
 import { AnonymousTips } from "./pages/Messages/AnonymousTips/AnonymousTips";
 import { Emergencies } from "./pages/Messages/Emergencies/Emergencies";
+import { Chats } from "./pages/Messages/Chats/Chats";
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -36,13 +37,18 @@ const App: React.FC = () => {
           <DefaultLayout>
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/Settings" element={<Settings/>}/>
-              <Route path="/Messages/Anonymous-Tips" element={<AnonymousTips/>}/>
-              <Route path="/Messages/Emergencies" element={<Emergencies/>}/>
+              <Route path="/Settings" element={<Settings />} />
+              <Route
+                path="/Messages/Anonymous-Tips"
+                element={<AnonymousTips />}
+              />
+              <Route path="/Messages/Emergencies" element={<Emergencies />} />
             </Routes>
           </DefaultLayout>
         }
       />
+
+      <Route path="/Messages/Chats" element={<Chats />} />
     </Routes>
   );
 };

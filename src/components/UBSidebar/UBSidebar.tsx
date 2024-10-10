@@ -6,6 +6,7 @@ import MessageIcon from "@mui/icons-material/Message";
 import PersonIcon from "@mui/icons-material/Person";
 import ReportIcon from "@mui/icons-material/Report";
 import SettingsIcon from "@mui/icons-material/Settings";
+import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
 
 interface UBISidebarProps {
   sidebarOpen: boolean;
@@ -113,7 +114,7 @@ export const UBSidebar = ({ sidebarOpen, setSidebarOpen }: UBISidebarProps) => {
                     "bg-graydark dark:bg-meta-4"
                   }`}
                 >
-                <DashboardIcon/>
+                  <DashboardIcon />
                   Dashboard
                 </NavLink>
               </li>
@@ -142,7 +143,7 @@ export const UBSidebar = ({ sidebarOpen, setSidebarOpen }: UBISidebarProps) => {
                             : setSidebarExpanded(true);
                         }}
                       >
-                       < MessageIcon/>
+                        <MessageIcon />
                         Messages
                         <svg
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
@@ -169,6 +170,18 @@ export const UBSidebar = ({ sidebarOpen, setSidebarOpen }: UBISidebarProps) => {
                         }`}
                       >
                         <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
+                          <li>
+                            <NavLink
+                              to="/Messages/Chats"
+                              className={({ isActive }) =>
+                                "group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white " +
+                                (isActive && "!text-white")
+                              }
+                            >
+                              Chats
+                            </NavLink>
+                          </li>
+
                           <li>
                             <NavLink
                               to="/Messages/Anonymous-Tips"
@@ -222,7 +235,7 @@ export const UBSidebar = ({ sidebarOpen, setSidebarOpen }: UBISidebarProps) => {
                             : setSidebarExpanded(true);
                         }}
                       >
-                        <PersonIcon/>
+                        <PersonIcon />
                         Users
                         <svg
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
@@ -268,7 +281,7 @@ export const UBSidebar = ({ sidebarOpen, setSidebarOpen }: UBISidebarProps) => {
                                 (isActive && "!text-white")
                               }
                             >
-                              Roles and Permission{" "}
+                              Roles and Permission
                             </NavLink>
                           </li>
                         </ul>
@@ -288,11 +301,25 @@ export const UBSidebar = ({ sidebarOpen, setSidebarOpen }: UBISidebarProps) => {
                     pathname.includes("Reports") && "bg-graydark dark:bg-meta-4"
                   }`}
                 >
-                  <ReportIcon/>
+                  <ReportIcon />
                   Reports
                 </NavLink>
               </li>
               {/* <!-- Menu Item Reports --> */}
+
+              {/* <!-- Menu Item Forms --> */}
+              <li>
+                <NavLink
+                  to="/Forms"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes("Reports") && "bg-graydark dark:bg-meta-4"
+                  }`}
+                >
+                  <FormatAlignJustifyIcon />
+                  Forms
+                </NavLink>
+              </li>
+              {/* <!-- Menu Item Forms --> */}
 
               {/* <!-- Menu Item Settings --> */}
               <li>
@@ -303,7 +330,7 @@ export const UBSidebar = ({ sidebarOpen, setSidebarOpen }: UBISidebarProps) => {
                     "bg-graydark dark:bg-meta-4"
                   }`}
                 >
-                  <SettingsIcon/>
+                  <SettingsIcon />
                   Settings
                 </NavLink>
               </li>
