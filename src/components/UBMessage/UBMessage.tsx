@@ -19,6 +19,7 @@ export const UBMessage: React.FC = () => {
         {/* Main Content Wrapper */}
         <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           {/* Header */}
+          {/* <UBHeader sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
 
           {/* Main Content */}
           <Box

@@ -8,23 +8,22 @@ import { UBMessageInput } from '../UBMessageInput/UBMessageInput';
 import { UBMessagePaneHeader } from '../UBMessagePaneHeader/UBMessagePaneHeader';
 import { ChatProps, MessageProps } from '../types';
 
-
 type IUBMessagesPaneProps = {
-    chat: ChatProps;
-  };
+  chat: ChatProps;
+};
 
 export const UBMessagePane: React.FC<IUBMessagesPaneProps> = (props) => {
+  const { chat } = props;
+  const [chatMessages, setChatMessages] = React.useState(chat.messages);
+  const [textAreaValue, setTextAreaValue] = React.useState('');
 
-    const { chat } = props;
-    const [chatMessages, setChatMessages] = React.useState(chat.messages);
-    const [textAreaValue, setTextAreaValue] = React.useState('');
-  
-    React.useEffect(() => {
-      setChatMessages(chat.messages);
-    }, [chat.messages]);
+  React.useEffect(() => {
+    setChatMessages(chat.messages);
+  }, [chat.messages]);
 
-    return(
-        <Sheet
+  return (
+    <Sheet
+      className="dark:bg-boxdark dark:text-white"
       sx={{
         height: { xs: 'calc(100dvh - var(--Header-height))', md: '100dvh' },
         display: 'flex',
@@ -43,6 +42,7 @@ export const UBMessagePane: React.FC<IUBMessagesPaneProps> = (props) => {
           overflowY: 'scroll',
           flexDirection: 'column-reverse',
         }}
+        className="dark:bg-meta-4"
       >
         <Stack spacing={2} sx={{ justifyContent: 'flex-end' }}>
           {chatMessages.map((message: MessageProps, index: number) => {
@@ -60,7 +60,11 @@ export const UBMessagePane: React.FC<IUBMessagesPaneProps> = (props) => {
                     src={message.sender.avatar}
                   />
                 )}
-                <UBChatBubble variant={isYou ? 'sent' : 'received'} {...message} />
+                <UBChatBubble
+                  // className={isYou ? 'dark:bg-primary' : 'dark:bg-meta-4'}
+                  variant={isYou ? 'sent' : 'received'}
+                  {...message}
+                />
               </Stack>
             );
           })}
@@ -84,5 +88,5 @@ export const UBMessagePane: React.FC<IUBMessagesPaneProps> = (props) => {
         }}
       />
     </Sheet>
-    )
-}
+  );
+};
