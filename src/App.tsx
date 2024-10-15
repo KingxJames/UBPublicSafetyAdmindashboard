@@ -10,6 +10,7 @@ import { Settings } from "./pages/Settings/Settings";
 import { AnonymousTips } from "./pages/Messages/AnonymousTips/AnonymousTips";
 import { Emergencies } from "./pages/Messages/Emergencies/Emergencies";
 import { Chats } from "./pages/Messages/Chats/Chats";
+import  UBPrivateRoute  from "./components/UBPrivateRoute/UBPrivateRoute"
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -36,6 +37,7 @@ const App: React.FC = () => {
         element={
           <DefaultLayout>
             <Routes>
+              <Route element={<UBPrivateRoute />} />
               <Route path="/" element={<Dashboard />} />
               <Route path="/Settings" element={<Settings />} />
               <Route
