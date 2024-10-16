@@ -10,18 +10,21 @@ import {
   Typography,
   TextField,
   Button,
-  Grid,
   CircularProgress,
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../store/store";
+import { useLoginMutation } from "../../../../store/services/authAPI";
+import Grid from '@mui/material/Grid2';
+
+
 
 const defaultTheme = createTheme();
 
-interface ILoginCredentials {
-  username: string;
-  password: string;
-}
+// interface ILoginCredentials {
+//   username: string;
+//   password: string;
+// }
 
 type FormValue = {
   username: string;
@@ -29,7 +32,7 @@ type FormValue = {
 };
 
 export const UBLogin: React.FC = () => {
-  const { loading, error } = useSelector((state: RootState) => state.auth);
+  const { loading } = useSelector((state: RootState) => state.auth);
   const {
     register,
     handleSubmit,
@@ -38,12 +41,21 @@ export const UBLogin: React.FC = () => {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (loginError) setConsoleMessage("Mismatch username/password");
 
-  //   if (!loginResult?.success) setConsoleMessage(loginResult?.message);
-  //   else navigate("/");
-  // }, [loginResult, loginError, loginIsSuccess]);
+  const [
+    login,
+    { data: loginResult, error: loginError, isSuccess: loginIsSuccess },
+  ] = useLoginMutation();
+  const [consoleMessage, setConsoleMessage] = useState<string | null>(null);
+
+
+
+  useEffect(() => {
+    if (loginError) setConsoleMessage("Mismatch username/password");
+
+    if (!loginResult?.success) setConsoleMessage(loginResult?.message);
+    else navigate("/");
+  }, [loginResult, loginError, loginIsSuccess]);
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -128,14 +140,14 @@ export const UBLogin: React.FC = () => {
                   },
                 })}
               />
-              {/* {errors.password && (
+               {errors.password && (
                 <p className="error-msg">{errors.password.message}</p>
               )}
               {consoleMessage && (
                 <Typography variant="body2" color="error" sx={{ mt: 2 }}>
                   {consoleMessage}
                 </Typography>
-              )} */}
+              )}
               <Button
                 type="submit"
                 fullWidth
