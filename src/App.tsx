@@ -9,7 +9,7 @@ import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { Settings } from "./pages/Settings/Settings";
 import { UBAnonymousTips } from "./components/UBComponents/UBMessages/UBAnonymousTips/UBAnonymousTips";
 import { Emergencies } from "./pages/Messages/Emergencies/Emergencies";
-import { Chats } from "./pages/Messages/Chats/Chats";
+import { Chats } from "./components/UBComponents/UBMessages/UBChats/UBChats";
 import  UBPrivateRoute  from "./components/UBPrivateRoute/UBPrivateRoute"
 
 const App: React.FC = () => {
