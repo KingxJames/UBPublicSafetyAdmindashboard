@@ -1,10 +1,10 @@
-// AnonymousTips.stories.tsx
+// UBDashboard.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react";
-import  { AnonymousTips } from './AnonymousTips';
+import  { UBDashboard } from './UBDashboard';
 
-const meta: Meta<typeof AnonymousTips> = {
-  title: 'pages/AnonymousTips', 
-  component: AnonymousTips,
+const meta: Meta<typeof UBDashboard> = {
+  title: 'components/UBDashboard', 
+  component: UBDashboard,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
