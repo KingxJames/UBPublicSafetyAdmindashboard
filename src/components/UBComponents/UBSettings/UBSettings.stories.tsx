@@ -1,10 +1,10 @@
-// Emergencies.stories.tsx
+// UBSettings.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react";
-import  { Emergencies } from './Emergencies';
+import  { UBSettings } from './UBSettings';
 
-const meta: Meta<typeof Emergencies> = {
-  title: 'pages/Emergencies', 
-  component: Emergencies,
+const meta: Meta<typeof UBSettings> = {
+  title: 'components/UBSettings', 
+  component: UBSettings,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',

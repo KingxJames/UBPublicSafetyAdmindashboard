@@ -7,9 +7,9 @@ import DefaultLayout from "./layout/DefaultLayout";
 import { Login } from "./pages/Login/Login";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { Settings } from "./pages/Settings/Settings";
-import { UBAnonymousTips } from "./components/UBComponents/UBMessages/UBAnonymousTips/UBAnonymousTips";
+import { AnonymousTips } from "./pages/Messages/AnonymousTips/AnonymousTips";
 import { Emergencies } from "./pages/Messages/Emergencies/Emergencies";
-import { Chats } from "./components/UBComponents/UBMessages/UBChats/UBChats";
+import Chats from "./pages/Messages/Chats/Chat";
 import  UBPrivateRoute  from "./components/UBPrivateRoute/UBPrivateRoute"
 
 const App: React.FC = () => {
@@ -42,7 +42,7 @@ const App: React.FC = () => {
               <Route path="/Settings" element={<Settings />} />
               <Route
                 path="/Messages/Anonymous-Tips"
-                element={<UBAnonymousTips />}
+                element={<AnonymousTips />}
               />
               <Route path="/Messages/Emergencies" element={<Emergencies />} />
             </Routes>

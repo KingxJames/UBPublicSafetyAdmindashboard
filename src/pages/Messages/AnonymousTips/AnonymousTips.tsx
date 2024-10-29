@@ -1,10 +1,13 @@
 import React from "react";
 import UBAnonymousTips from "../../../components/UBComponents/UBMessages/UBAnonymousTips/UBAnonymousTips";
 
-export const Anonymous: React.FC = () => {
+export const AnonymousTips: React.FC = () => {
   return (
     <>
       <UBAnonymousTips />
     </>
   );
 };
+
+
+export default AnonymousTips;
