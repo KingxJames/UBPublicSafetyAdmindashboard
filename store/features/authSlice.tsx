@@ -7,6 +7,8 @@ interface AuthState {
   name: string;
   loading: boolean;
   error: string | null;
+  user: any;
+  isAuthenticated: boolean;
 }
 
 const initialState: AuthState = {
@@ -15,6 +17,8 @@ const initialState: AuthState = {
   name: "",
   loading: false,
   error: null,
+  user: null,
+  isAuthenticated: false,
 };
 
 // Slice
@@ -28,10 +32,18 @@ export const authSlice = createSlice({
     logout(state) {
       return { ...state, token: null };
     },
+    setUser(state, action: PayloadAction<any>) {
+      state.user = action.payload;
+      state.isAuthenticated = true;
+    },
+    clearUser(state) {
+      state.user = null;
+      state.isAuthenticated = false;
+    },
   },
 });
 
-export const { setAuthData, logout } = authSlice.actions;
+export const { setAuthData, logout, setUser, clearUser } = authSlice.actions;
 
 export default authSlice.reducer;
 

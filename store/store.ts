@@ -9,11 +9,10 @@ export const store = configureStore({
   reducer: {
     auth: authReducer,
     dashboard: dashboardReducer,
-    [baseAPI.reducerPath]: baseAPI.reducer
+    [baseAPI.reducerPath]: baseAPI.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
-      authAPI.middleware, baseAPI.middleware),
+    getDefaultMiddleware().concat(authAPI.middleware, baseAPI.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

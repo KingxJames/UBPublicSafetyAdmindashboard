@@ -9,7 +9,7 @@ import { selectUsername } from "../../../../store/features/authSlice";
 
 interface IDropdownUserProps {
   name: string;
-  position: string;
+  picture: string
 }
 
 export const DropdownUser: React.FC<

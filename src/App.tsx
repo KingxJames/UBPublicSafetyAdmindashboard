@@ -10,7 +10,9 @@ import { Settings } from "./pages/Settings/Settings";
 import { AnonymousTips } from "./pages/Messages/AnonymousTips/AnonymousTips";
 import { Emergencies } from "./pages/Messages/Emergencies/Emergencies";
 import Chats from "./pages/Messages/Chats/Chat";
-import  UBPrivateRoute  from "./components/UBPrivateRoute/UBPrivateRoute"
+import UBPrivateRoute from "./components/UBPrivateRoute/UBPrivateRoute";
+import GoogleAuth from "../src/components/GoogleAuth/GoogleAuth.tsx";
+
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -24,12 +26,24 @@ const App: React.FC = () => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
+  const handleLoginSuccess = (response: any) => {
+    console.log("Login Success:", response);
+    // Extract necessary user information or token here.
+  };
+
+  const handleLoginError = () => {
+    console.log("Login Failed");
+  };
+
   return loading ? (
     <Loader />
   ) : (
+    
     <Routes>
       {/* Login page should be outside of the DefaultLayout */}
+
       <Route path="/login" element={<Login />} />
+
 
       {/* Other routes inside the DefaultLayout */}
       <Route

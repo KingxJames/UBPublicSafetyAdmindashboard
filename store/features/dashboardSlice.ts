@@ -2,9 +2,10 @@ import { createSlice, isAction, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store"; // Adjust the path according to your project structure
 
 interface ITotal {
-  totalReports: number;
-  totalMessagesSent: number;
-  totalUsers: number;
+  usersTotal: number;
+  reportTotal: number;
+  incidentFilesTotal: number;
+  messageTotal: number;
 }
 
 export interface DashboardInitialState {
@@ -13,9 +14,10 @@ export interface DashboardInitialState {
 
 const initialState: DashboardInitialState = {
   total: {
-    totalReports: 0,
-    totalMessagesSent: 0,
-    totalUsers: 0,
+    usersTotal: 0,
+    reportTotal: 0,
+    incidentFilesTotal: 0,
+    messageTotal: 0,
   },
 };
 
@@ -29,9 +31,14 @@ const dashboardSlice = createSlice({
     ) => {
       return { ...state, ...action.payload };
     },
-
-    setTotalState: (state, action: PayloadAction<ITotal>) => {
-      return { ...state, ...action.payload };
+    setTotalState: (state, action: PayloadAction<Partial<ITotal>>) => {
+      return {
+        ...state,
+        total: {
+          ...state.total,
+          ...action.payload,
+        },
+      };
     },
   },
 });
@@ -39,7 +46,9 @@ const dashboardSlice = createSlice({
 export const { setDashboardState, setTotalState } = dashboardSlice.actions;
 
 export const selectDashboard = (state: RootState) => {
-    return state.dashboard
-}
+  return state.dashboard;
+};
 
-export default dashboardSlice.reducer
+export const selectTotalState = (state: RootState) => state.dashboard.total;
+
+export default dashboardSlice.reducer;

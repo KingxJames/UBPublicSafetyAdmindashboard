@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 interface IUBCardDataStatsProps {
   title: string;
-  total: string;
+  total: number;
   children: ReactNode;
 }
 
